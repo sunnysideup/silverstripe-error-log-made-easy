@@ -1,9 +1,9 @@
 ---
-Name: healthcheck-errors
+Name: error-logs-made-easy
 Only:
   envvarset:
-    - 'SS_HEALTH_CHECK_ERROR_FROM_EMAIL'
-    - 'SS_HEALTH_CHECK_ERROR_TO_EMAIL'
+    - 'SS_ERROR_LOG_MADE_EASY_FROM_EMAIL'
+    - 'SS_ERROR_LOG_MADE_EASY_TO_EMAIL'
 ---
 SilverStripe\Core\Injector\Injector:
   Psr\Log\LoggerInterface:
@@ -12,9 +12,9 @@ SilverStripe\Core\Injector\Injector:
   MailHandler:
       class: Monolog\Handler\NativeMailerHandler
       constructor:
-        - '`SS_HEALTH_CHECK_ERROR_TO_EMAIL`'
+        - '`SS_ERROR_LOG_MADE_EASY_TO_EMAIL`'
         - 'Please review this error'
-        - '`SS_HEALTH_CHECK_ERROR_FROM_EMAIL`'
+        - '`SS_ERROR_LOG_MADE_EASY_FROM_EMAIL`'
         - error
       properties:
         ContentType: text/html

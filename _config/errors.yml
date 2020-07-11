@@ -1,0 +1,21 @@
+---
+Name: healthcheck-errors
+Only:
+  envvarset:
+    - 'SS_HEALTH_CHECK_ERROR_FROM_EMAIL'
+    - 'SS_HEALTH_CHECK_ERROR_TO_EMAIL'
+---
+SilverStripe\Core\Injector\Injector:
+  Psr\Log\LoggerInterface:
+    calls:
+      MailHandler: [ pushHandler, [ '%$MailHandler' ] ]
+  MailHandler:
+      class: Monolog\Handler\NativeMailerHandler
+      constructor:
+        - '`SS_HEALTH_CHECK_ERROR_TO_EMAIL`'
+        - 'Please review this error'
+        - '`SS_HEALTH_CHECK_ERROR_FROM_EMAIL`'
+        - error
+      properties:
+        ContentType: text/html
+        Formatter: %$SilverStripe\Logging\DetailedErrorFormatter

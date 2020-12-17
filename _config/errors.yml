@@ -18,4 +18,4 @@ SilverStripe\Core\Injector\Injector:
         - error
       properties:
         ContentType: text/html
-        Formatter: %$SilverStripe\Logging\DetailedErrorFormatter
+        Formatter: SilverStripe\Logging\DetailedErrorFormatter

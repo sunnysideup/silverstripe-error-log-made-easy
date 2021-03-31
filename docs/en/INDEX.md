@@ -12,5 +12,6 @@ SS_ERROR_LOG_MADE_EASY_TO_EMAIL="a@b.c"
 
 
 # alternatively, you can also set the following in your .env file:
-
+```env
 SS_ERROR_LOG="error.log"
+```

@@ -15,7 +15,7 @@ SilverStripe\Core\Injector\Injector:
         - '`SS_ERROR_LOG_MADE_EASY_TO_EMAIL`'
         - 'Please review this error'
         - '`SS_ERROR_LOG_MADE_EASY_FROM_EMAIL`'
-        - error
+        - info
       properties:
         ContentType: text/html
         Formatter: '%$SilverStripe\Logging\DetailedErrorFormatter'

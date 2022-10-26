@@ -1,21 +1,21 @@
----
-Name: error-logs-made-easy
-Only:
-  envvarset:
-    - 'SS_ERROR_LOG_MADE_EASY_FROM_EMAIL'
-    - 'SS_ERROR_LOG_MADE_EASY_TO_EMAIL'
----
-SilverStripe\Core\Injector\Injector:
-  Psr\Log\LoggerInterface:
-    calls:
-      MailHandler: [ pushHandler, [ '%$MailHandler' ] ]
-  MailHandler:
-      class: Monolog\Handler\NativeMailerHandler
-      constructor:
-        - '`SS_ERROR_LOG_MADE_EASY_TO_EMAIL`'
-        - 'Please review this error'
-        - '`SS_ERROR_LOG_MADE_EASY_FROM_EMAIL`'
-        - info
-      properties:
-        ContentType: text/html
-        Formatter: '%$SilverStripe\Logging\DetailedErrorFormatter'
+# ---
+# Name: error-logs-made-easy
+# Only:
+#   envvarset:
+#     - 'SS_ERROR_LOG_MADE_EASY_FROM_EMAIL'
+#     - 'SS_ERROR_LOG_MADE_EASY_TO_EMAIL'
+# ---
+# SilverStripe\Core\Injector\Injector:
+#   Psr\Log\LoggerInterface:
+#     calls:
+#       MailHandler: [ pushHandler, [ '%$MailHandler' ] ]
+#   MailHandler:
+#       class: Monolog\Handler\NativeMailerHandler
+#       constructor:
+#         - '`SS_ERROR_LOG_MADE_EASY_TO_EMAIL`'
+#         - 'Please review this error'
+#         - '`SS_ERROR_LOG_MADE_EASY_FROM_EMAIL`'
+#         - info
+#       properties:
+#         ContentType: text/html
+#         Formatter: '%$SilverStripe\Logging\DetailedErrorFormatter'
